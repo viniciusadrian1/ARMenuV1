@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>ARMenu - Visualize Pratos em Realidade Aumentada</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Tela de Menu -->
+    <div id="menu-screen" class="screen active">
+        <div class="container">
+            <header>
+                <h1>ARMenu</h1>
+                <p class="subtitle">Visualize nossos pratos em AR</p>
+            </header>
+            
+            <div class="dishes-grid" id="dishes-container">
+                <!-- Pratos serão carregados dinamicamente -->
+            </div>
+            
+            <button id="admin-btn" class="admin-button">⚙️ Admin</button>
+        </div>
+    </div>
+
+    <!-- Tela de Visualização AR -->
+    <div id="ar-screen" class="screen">
+        <div id="ar-container"></div>
+        
+        <div class="ar-controls">
+            <button id="back-btn" class="control-btn">← Voltar</button>
+            <div class="info-panel" id="dish-info">
+                <h3 id="dish-name"></h3>
+                <div id="dish-measures"></div>
+            </div>
+            <div class="interaction-hints">
+                <p>Toque e arraste para mover</p>
+                <p>Pinça para zoom</p>
+                <p>Rotacione com dois dedos</p>
+            </div>
+        </div>
+        
+        <button id="start-ar-btn" class="ar-button">Iniciar AR</button>
+        <button id="reset-position-btn" class="control-btn-small">Resetar Posição</button>
+    </div>
+
+    <!-- Tela de Admin -->
+    <div id="admin-screen" class="screen">
+        <div class="container">
+            <header>
+                <h2>Painel Administrativo</h2>
+                <button id="close-admin-btn" class="close-btn">✕</button>
+            </header>
+            
+            <div class="admin-form">
+                <h3>Adicionar Novo Prato</h3>
+                <form id="dish-form">
+                    <div class="form-group">
+                        <label for="dish-name-input">Nome do Prato:</label>
+                        <input type="text" id="dish-name-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dish-description">Descrição:</label>
+                        <textarea id="dish-description" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dish-diameter">Diâmetro (cm):</label>
+                        <input type="number" id="dish-diameter" step="0.1" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dish-height">Altura (cm):</label>
+                        <input type="number" id="dish-height" step="0.1" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dish-price">Preço (R$):</label>
+                        <input type="number" id="dish-price" step="0.01" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dish-model">Arquivo 3D (.glb):</label>
+                        <input type="file" id="dish-model" accept=".glb" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dish-image">Imagem do Prato:</label>
+                        <input type="file" id="dish-image" accept="image/*">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Adicionar Prato</button>
+                </form>
+            </div>
+            
+            <div class="dishes-list">
+                <h3>Pratos Cadastrados</h3>
+                <div id="admin-dishes-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Carregando modelo 3D...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
