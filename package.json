@@ -1,0 +1,19 @@
+{
+  "name": "armenu",
+  "version": "1.0.0",
+  "description": "Aplicação web de realidade aumentada para visualização de pratos de restaurante",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -c-1",
+    "dev": "npx http-server -p 8000 -c-1 -o"
+  },
+  "keywords": [
+    "ar",
+    "webxr",
+    "threejs",
+    "restaurant",
+    "menu"
+  ],
+  "author": "",
+  "license": "MIT"
+}
