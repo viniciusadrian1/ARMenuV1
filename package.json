@@ -2,10 +2,10 @@
   "name": "armenu",
   "version": "1.0.0",
   "description": "Aplicação web de realidade aumentada para visualização de pratos de restaurante",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
-    "start": "npx http-server -p 8000 -c-1",
-    "dev": "npx http-server -p 8000 -c-1 -o"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "keywords": [
     "ar",
@@ -15,5 +15,11 @@
     "menu"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

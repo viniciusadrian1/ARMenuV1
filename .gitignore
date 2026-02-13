@@ -5,9 +5,9 @@ Thumbs.db
 *.swo
 *~
 
-# Node modules (se usar npm no futuro)
+# Node modules
 node_modules/
-package-lock.json
+# package-lock.json - mantenha este arquivo para builds consistentes
 
 # Arquivos de modelo grandes (opcional - descomente se não quiser versionar)
 # *.glb
